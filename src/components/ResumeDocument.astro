@@ -1,0 +1,77 @@
+---
+import ResumeHeader from "./ResumeHeader.astro";
+import type { Resume } from "../data/types";
+
+interface Props {
+  resume: Resume;
+}
+
+const { resume } = Astro.props;
+---
+
+<ResumeHeader contact={resume.contact} />
+
+{
+  resume.sections.map((section) => (
+    <section>
+      <h2 class="mt-[14pt] mb-[7pt] border-b-[0.6pt] border-black pb-[3pt] text-[12pt] font-semibold">{section.title}</h2>
+
+      {section.kind === "jobs" &&
+        section.jobs.map((job) => (
+          <div class="mt-[6pt] break-inside-avoid first-of-type:mt-0">
+            <div class="flex items-baseline justify-between gap-[1em]">
+              <span class="font-semibold">{job.company}</span>
+              <span>{job.location}</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-[1em] text-[10pt]">
+              <span>{job.role}</span>
+              <span>{job.period}</span>
+            </div>
+            <ul class="mt-[4pt] list-disc pl-[16pt]">
+              {job.bullets.map((bullet) => (
+                <li class="mt-[2pt] text-justify text-[10pt] hyphens-auto">{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+      {section.kind === "projects" &&
+        section.projects.map((project) => (
+          <div class="break-inside-avoid not-first-of-type:mt-[6pt]">
+            <div class="flex items-baseline justify-between gap-[1em]">
+              <span class="font-semibold">{project.name}</span>
+              <span class="text-[10pt]">{project.period}</span>
+            </div>
+            <p class="mt-[3pt] text-justify text-[10pt] hyphens-auto">{project.description}</p>
+          </div>
+        ))}
+
+      {section.kind === "education" &&
+        section.entries.map((entry) => (
+          <div class="mt-[6pt] break-inside-avoid first-of-type:mt-0">
+            <div class="flex items-baseline justify-between gap-[1em]">
+              <span class="font-semibold">{entry.institution}</span>
+              <span>{entry.location}</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-[1em] text-[10pt]">
+              <span>
+                {entry.degree}
+                {entry.detail && <span> — {entry.detail}</span>}
+              </span>
+              <span>{entry.period}</span>
+            </div>
+          </div>
+        ))}
+
+      {section.kind === "skills" && (
+        <ul class="m-0 list-disc pl-[16pt]">
+          {section.groups.map((group) => (
+            <li class="mt-[2pt] text-[10pt]">
+              <span class="font-medium">{group.title}</span>: {group.items}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  ))
+}

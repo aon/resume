@@ -1,0 +1,9 @@
+---
+import ResumeLayout from "../layouts/ResumeLayout.astro";
+import ResumeDocument from "../components/ResumeDocument.astro";
+import { education } from "../data/education";
+---
+
+<ResumeLayout title={education.title} lang={education.lang}>
+  <ResumeDocument resume={education} />
+</ResumeLayout>

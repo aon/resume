@@ -1,0 +1,20 @@
+---
+import { dev } from "../data/dev";
+import { education } from "../data/education";
+import "../styles/tailwind.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume variants</title>
+  </head>
+  <body class="m-2 p-8 font-[system-ui] leading-normal">
+    <h1 class="my-[0.67em] text-[2em] font-bold">Resume variants</h1>
+    <ul class="my-4 list-disc pl-10">
+      <li><a class="text-[#0000ee] underline visited:text-[#551a8b]" href="/dev">{dev.title}</a></li>
+      <li><a class="text-[#0000ee] underline visited:text-[#551a8b]" href="/education">{education.title}</a></li>
+    </ul>
+  </body>
+</html>

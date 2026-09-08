@@ -1,0 +1,30 @@
+---
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/500.css";
+import "@fontsource/geist-sans/600.css";
+import "@fontsource/geist-sans/700.css";
+import "../styles/tailwind.css";
+
+interface Props {
+  title: string;
+  lang: string;
+}
+
+const { title, lang } = Astro.props;
+---
+
+<html lang={lang} class="font-['Geist_Sans',system-ui,sans-serif] text-black">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+  </head>
+  <body class="m-0 bg-[#525659] text-[11pt] leading-[1.24] print:bg-white">
+    <main
+      class="mx-auto my-4 h-[297mm] w-[210mm] overflow-hidden bg-white p-[12.7mm] shadow-[0_2px_12px_rgb(0_0_0_/_0.4)] print:m-0 print:h-auto print:w-auto print:overflow-visible print:p-0 print:shadow-none"
+    >
+      <slot />
+    </main>
+  </body>
+</html>

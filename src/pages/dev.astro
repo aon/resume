@@ -1,0 +1,9 @@
+---
+import ResumeLayout from "../layouts/ResumeLayout.astro";
+import ResumeDocument from "../components/ResumeDocument.astro";
+import { dev } from "../data/dev";
+---
+
+<ResumeLayout title={dev.title} lang={dev.lang}>
+  <ResumeDocument resume={dev} />
+</ResumeLayout>

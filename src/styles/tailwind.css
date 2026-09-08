@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Page size and margins have no Tailwind utility equivalent. */
+@page {
+  size: A4;
+  margin: 12.7mm;
+}
