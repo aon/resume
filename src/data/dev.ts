@@ -23,23 +23,23 @@ export const dev: Resume = {
         },
         {
           company: "Moonsong Labs",
-          location: "Boston, USA",
+          location: "Remote, USA",
           role: "Senior Full Stack Engineer",
           period: "Oct 2023 – Sep 2026",
           bullets: [
-            "Led development of ZKsync’s protocol governance platform, replacing CLI workflows for 15+ stakeholders with a UI for multisig coordination and on-chain proposal signing.",
-            "Delivered an enterprise permissioning system that processed 10,000+ transactions, spanning backend authorization and user-facing dashboards.",
-            "Enabled account recovery for ZKsync SSO’s passkey-based wallets by building the recovery UI and backend orchestration.",
+            "Led development of a governance platform that replaced CLI workflows for 15+ stakeholders with a web UI for multi-party approvals and signing.",
+            "Delivered an enterprise permissioning system that processed 10,000+ transactions, spanning backend authorization services and user-facing dashboards.",
+            "Built the account recovery flow for a passkey-based authentication product, including the recovery UI and backend orchestration.",
           ],
         },
         {
-          company: "CoinFabrik Web3 Solutions",
+          company: "CoinFabrik",
           location: "Buenos Aires, Argentina",
           role: "Technical Lead",
           period: "Sep 2022 – Oct 2023",
           bullets: [
-            "Enabled detection of 23+ vulnerability classes in ink! smart contracts by co-developing Scout, an open-source static analyzer built in Rust.",
-            "Led migration of a cryptographic library to run across browsers and platforms, unblocking integration into web and mobile products.",
+            "Co-developed Scout, an open-source static analysis tool written in Rust that detects 23+ classes of security issues in application code.",
+            "Led migration of a cryptographic library to WebAssembly so it could run across browsers and platforms, unblocking integration into web and mobile products.",
             "Designed a prototype asset management platform with role-based delegated authentication, including admin and user-facing interfaces.",
           ],
         },
@@ -49,7 +49,7 @@ export const dev: Resume = {
           role: "Full Stack Engineer",
           period: "Apr 2022 – Oct 2022",
           bullets: [
-            "Built and maintained 10+ microservices for payments, accounts, and transactions, including an engine that synchronized on-chain and off-chain activity in real time.",
+            "Built and maintained 10+ microservices for payments, accounts, and transactions, including an engine that reconciled internal ledgers with external payment activity in real time.",
             "Delivered core fintech flows across web and mobile with React and React Native.",
           ],
         },
@@ -81,7 +81,7 @@ export const dev: Resume = {
         },
         {
           title: "Backend & Infrastructure",
-          items: "Node.js, Express, Nest.js, Fastify, AWS, Docker, Prisma, PostgreSQL, WebSockets, GraphQL, REST, gRPC",
+          items: "Node.js, Express, Nest.js, Fastify, AWS, Cloudflare Workers, Docker, Prisma, PostgreSQL, WebSockets, GraphQL, REST, gRPC",
         },
         {
           title: "Testing & CI/CD",
