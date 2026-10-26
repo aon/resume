@@ -27,11 +27,13 @@ const { resume } = Astro.props;
               <span>{job.role}</span>
               <span>{job.period}</span>
             </div>
-            <ul class="mt-[4pt] list-disc pl-[16pt]">
-              {job.bullets.map((bullet) => (
-                <li class="mt-[2pt] text-justify text-[10pt] hyphens-auto">{bullet}</li>
-              ))}
-            </ul>
+            {job.bullets.length > 0 && (
+              <ul class="mt-[4pt] list-disc pl-[16pt]">
+                {job.bullets.map((bullet) => (
+                  <li class="mt-[2pt] text-justify text-[10pt] hyphens-auto">{bullet}</li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
 

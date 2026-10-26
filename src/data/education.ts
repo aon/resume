@@ -64,6 +64,13 @@ export const education: Resume = {
       title: "Experiencia Profesional",
       jobs: [
         {
+          company: "Profound",
+          location: "Remoto, EE. UU.",
+          role: "Member of Technical Staff",
+          period: "Oct 2026 – Presente",
+          bullets: [],
+        },
+        {
           company: "Afippi",
           location: "Buenos Aires, Argentina",
           role: "Fundador & Full Stack Engineer",

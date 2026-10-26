@@ -11,12 +11,22 @@ export const dev: Resume = {
       title: "Experience",
       jobs: [
         {
+          company: "Profound",
+          location: "Remote, USA",
+          role: "Member of Technical Staff",
+          period: "Oct 2026 – Present",
+          bullets: [
+            "Building an AI search marketing platform used by 25,000+ marketers across 90+ countries.",
+            "Developing the ads product, a one-stop shop that ingests campaigns across ad platforms, suggests AI-driven improvements, and generates ad images and videos.",
+          ],
+        },
+        {
           company: "Afippi",
           location: "Buenos Aires, Argentina",
           role: "Founder & Full Stack Engineer",
           period: "Jul 2025 – Present",
           bullets: [
-            "Founded Afippi, a B2B SaaS platform serving 100+ accountants with ARCA data synchronization and business analytics.",
+            "Founded a B2B SaaS platform serving 100+ accountants with ARCA data sync and business analytics.",
             "Built the product end to end using TanStack Start, Cloudflare Workers, and self-hosted browser automation infrastructure.",
             "Led marketing, sales, and team growth alongside product development.",
           ],
@@ -38,9 +48,8 @@ export const dev: Resume = {
           role: "Technical Lead",
           period: "Sep 2022 – Oct 2023",
           bullets: [
-            "Co-developed Scout, an open-source static analysis tool written in Rust that detects 23+ classes of security issues in application code.",
-            "Led migration of a cryptographic library to WebAssembly so it could run across browsers and platforms, unblocking integration into web and mobile products.",
-            "Designed a prototype asset management platform with role-based delegated authentication, including admin and user-facing interfaces.",
+            "Led a team building Scout, an open-source Rust tool that detects 23+ classes of security issues.",
+            "Led migration of a cryptographic library to WebAssembly, enabling its use in web and mobile products.",
           ],
         },
         {
@@ -60,7 +69,6 @@ export const dev: Resume = {
           period: "Apr 2021 – Apr 2022",
           bullets: [
             "Engineered C++ drivers for hardware-software integration and designed digital blocks in Verilog.",
-            "Built internal tooling adopted team-wide to automate repetitive engineering workflows.",
           ],
         },
       ],
