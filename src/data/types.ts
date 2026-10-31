@@ -2,16 +2,21 @@ export interface Contact {
   name: string;
   email: string;
   linkedin: { label: string; url: string };
-  phone: { label: string; tel: string };
+  github?: { label: string; url: string };
+  phone?: { label: string; tel: string };
   location: string;
 }
+
+export type InlineText = string | { text: string; href: string };
+
+export type Bullet = string | InlineText[];
 
 export interface Job {
   company: string;
   location: string;
   role: string;
   period: string;
-  bullets: string[];
+  bullets: Bullet[];
 }
 
 export interface Project {
@@ -34,6 +39,7 @@ export interface SkillGroup {
 }
 
 export type Section =
+  | { kind: "summary"; text: string }
   | { kind: "jobs"; title: string; jobs: Job[] }
   | { kind: "projects"; title: string; projects: Project[] }
   | { kind: "education"; title: string; entries: EducationEntry[] }

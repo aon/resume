@@ -6,6 +6,9 @@ import puppeteer from "puppeteer";
 const VARIANTS: Record<string, string> = {
   dev: "Agustin_Aon_Resume",
   education: "Agustin_Aon_CV_Docencia",
+  fullstack: "Agustin_Aon_Resume_Fullstack",
+  backend: "Agustin_Aon_Resume_Backend",
+  crypto: "Agustin_Aon_Resume_Crypto",
 };
 
 const CONTENT_TYPES: Record<string, string> = {
@@ -41,7 +44,8 @@ const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
 try {
   for (const [variant, fileName] of Object.entries(VARIANTS)) {
     const page = await browser.newPage();
-    await page.goto(`http://localhost:${address.port}/${variant}/`, { waitUntil: "networkidle0" });
+    const response = await page.goto(`http://localhost:${address.port}/${variant}/`, { waitUntil: "networkidle0" });
+    if (!response?.ok()) throw new Error(`Failed to load /${variant}/: HTTP ${response?.status()}`);
     await page.pdf({
       path: `output/${fileName}.pdf`,
       preferCSSPageSize: true,

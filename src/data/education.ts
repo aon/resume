@@ -1,10 +1,10 @@
-import { contact, educationEs } from "./common";
+import { contactWithPhone, educationEs } from "./common";
 import type { Resume } from "./types";
 
 export const education: Resume = {
   lang: "es",
   title: "Agustin Aon — CV Docente",
-  contact,
+  contact: contactWithPhone,
   sections: [
     {
       kind: "jobs",

@@ -1,6 +1,5 @@
 ---
-import { dev } from "../data/dev";
-import { education } from "../data/education";
+import { resumes } from "../data";
 import "../styles/tailwind.css";
 ---
 
@@ -13,8 +12,11 @@ import "../styles/tailwind.css";
   <body class="m-2 p-8 font-[system-ui] leading-normal">
     <h1 class="my-[0.67em] text-[2em] font-bold">Resume variants</h1>
     <ul class="my-4 list-disc pl-10">
-      <li><a class="text-[#0000ee] underline visited:text-[#551a8b]" href="/dev">{dev.title}</a></li>
-      <li><a class="text-[#0000ee] underline visited:text-[#551a8b]" href="/education">{education.title}</a></li>
+      {
+        Object.entries(resumes).map(([variant, resume]) => (
+          <li><a class="text-[#0000ee] underline visited:text-[#551a8b]" href={`/${variant}`}>{resume.title}</a></li>
+        ))
+      }
     </ul>
   </body>
 </html>

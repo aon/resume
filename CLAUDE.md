@@ -9,7 +9,7 @@ This resume should be written in a concise yet professional style. It should hav
 ## Commands
 
 - Tool setup: `mise install` (Node.js and pnpm versions are pinned in `mise.toml`)
-- Dev server: `pnpm dev` (view variants at /dev and /education)
+- Dev server: `pnpm dev` (variants listed at /, e.g. /dev, /fullstack, /education)
 - Build PDFs: `pnpm build`
 
 ## Architecture and Structure
@@ -18,13 +18,16 @@ This resume should be written in a concise yet professional style. It should hav
 
 - `src/data/types.ts` - Typed content model (Resume, Section, Job, etc.)
 - `src/data/common.ts` - Shared content (contact info, education entries)
-- `src/data/dev.ts` - Full Stack Engineer variant (English)
+- `src/data/experience.ts` - Shared English job metadata (company, role, dates) in reverse-chronological order; variants supply only bullets via `experience({...})`
+- `src/data/dev.ts` - Default Full Stack Engineer variant (English)
+- `src/data/fullstack.ts`, `backend.ts`, `crypto.ts` - Role-targeted variants with summary, bullets, and skills (English)
 - `src/data/education.ts` - Teaching assistant variant (Spanish)
+- `src/data/index.ts` - Variant registry; each key becomes a route via `src/pages/[variant].astro`
 - `src/components/` - Astro components that render a Resume object
 - `src/layouts/ResumeLayout.astro` - Page shell, loads Geist font and styles
 - `src/styles/tailwind.css` - Tailwind entry point and A4 page setup
 - `@phosphor-icons/core` - Contact icons, using regular-weight SVGs imported as Astro components
-- `scripts/export-pdf.ts` - Exports A4 PDFs via Puppeteer
+- `scripts/export-pdf.ts` - Exports A4 PDFs via Puppeteer (add new variants to its `VARIANTS` map)
 
 Editing the resume = editing the TS objects in `src/data/`. Components only render.
 

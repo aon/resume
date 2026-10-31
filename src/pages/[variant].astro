@@ -1,0 +1,15 @@
+---
+import ResumeLayout from "../layouts/ResumeLayout.astro";
+import ResumeDocument from "../components/ResumeDocument.astro";
+import { resumes } from "../data";
+
+export function getStaticPaths() {
+  return Object.entries(resumes).map(([variant, resume]) => ({ params: { variant }, props: { resume } }));
+}
+
+const { resume } = Astro.props;
+---
+
+<ResumeLayout title={resume.title} lang={resume.lang}>
+  <ResumeDocument resume={resume} />
+</ResumeLayout>

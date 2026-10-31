@@ -1,6 +1,7 @@
 ---
 import Envelope from "@phosphor-icons/core/regular/envelope.svg";
 import LinkedinLogo from "@phosphor-icons/core/regular/linkedin-logo.svg";
+import GithubLogo from "@phosphor-icons/core/regular/github-logo.svg";
 import Phone from "@phosphor-icons/core/regular/phone.svg";
 import MapPin from "@phosphor-icons/core/regular/map-pin.svg";
 import type { Contact } from "../data/types";
@@ -21,9 +22,16 @@ const { contact } = Astro.props;
     <a class="inline-flex items-center gap-1 whitespace-nowrap" href={contact.linkedin.url}>
       <LinkedinLogo class="block size-[14px] shrink-0" aria-hidden="true" focusable="false" /><span class="leading-none">{contact.linkedin.label}</span>
     </a>
-    <a class="inline-flex items-center gap-1 whitespace-nowrap" href={`tel:${contact.phone.tel}`}>
-      <Phone class="block size-[14px] shrink-0" aria-hidden="true" focusable="false" /><span class="leading-none">{contact.phone.label}</span>
-    </a>
+    {contact.github && (
+      <a class="inline-flex items-center gap-1 whitespace-nowrap" href={contact.github.url}>
+        <GithubLogo class="block size-[14px] shrink-0" aria-hidden="true" focusable="false" /><span class="leading-none">{contact.github.label}</span>
+      </a>
+    )}
+    {contact.phone && (
+      <a class="inline-flex items-center gap-1 whitespace-nowrap" href={`tel:${contact.phone.tel}`}>
+        <Phone class="block size-[14px] shrink-0" aria-hidden="true" focusable="false" /><span class="leading-none">{contact.phone.label}</span>
+      </a>
+    )}
     <span class="inline-flex items-center gap-1 whitespace-nowrap">
       <MapPin class="block size-[14px] shrink-0" aria-hidden="true" focusable="false" /><span class="leading-none">{contact.location}</span>
     </span>

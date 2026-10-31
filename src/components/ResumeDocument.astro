@@ -14,7 +14,11 @@ const { resume } = Astro.props;
 {
   resume.sections.map((section) => (
     <section>
-      <h2 class="mt-[14pt] mb-[7pt] border-b-[0.6pt] border-black pb-[3pt] text-[12pt] font-semibold">{section.title}</h2>
+      {"title" in section && (
+        <h2 class="mt-[14pt] mb-[7pt] border-b-[0.6pt] border-black pb-[3pt] text-[12pt] font-semibold">{section.title}</h2>
+      )}
+
+      {section.kind === "summary" && <p class="mt-[12pt] text-justify text-[10pt] hyphens-auto">{section.text}</p>}
 
       {section.kind === "jobs" &&
         section.jobs.map((job) => (
@@ -30,7 +34,13 @@ const { resume } = Astro.props;
             {job.bullets.length > 0 && (
               <ul class="mt-[4pt] list-disc pl-[16pt]">
                 {job.bullets.map((bullet) => (
-                  <li class="mt-[2pt] text-justify text-[10pt] hyphens-auto">{bullet}</li>
+                  <li class="mt-[2pt] text-justify text-[10pt] hyphens-auto">
+                    {typeof bullet === "string"
+                      ? bullet
+                      : bullet.map((part) =>
+                          typeof part === "string" ? part : <a class="underline" href={part.href}>{part.text}</a>,
+                        )}
+                  </li>
                 ))}
               </ul>
             )}
